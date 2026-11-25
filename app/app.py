@@ -48,7 +48,7 @@ with col2:
     text = st.text_area("Dán mô tả tin đăng (không bắt buộc)", height=170,
                         placeholder="VD: Phòng khép kín, điều hòa, nóng lạnh, giờ giấc tự do, không chung chủ...")
 
-# Tọa độ ước lượng = trung vị các tin cùng phường (hoặc cùng quận)
+# Tọa độ ước lượng = trung vị các tin cùng phường (hoặc cùng quận).
 same = rooms[rooms["ward"] == ward] if ward != "(không rõ)" else rooms[rooms["district"] == district]
 lat, lon = same["lat"].median(), same["lon"].median()
 
