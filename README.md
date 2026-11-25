@@ -27,7 +27,7 @@ cho mô hình giá.
 - Phân loại loại tin (phòng riêng / ở ghép / nhiều mức giá) để lọc nhiễu: macro-F1 0,88.
 - Phân cụm 60 phường: tách được khu giá thấp và khu giá cao. Luật kết hợp (Apriori) giữa tiện ích và mức giá.
 
-Báo cáo chi tiết: `docs/BAO_CAO_NHAP.md`.
+Báo cáo tiến độ: `docs/bao_cao_tien_do/Group09_ProgressReport.pdf`. Báo cáo nháp chi tiết: `docs/BAO_CAO_NHAP.md`.
 
 ## Cách chạy
 

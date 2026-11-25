@@ -16,3 +16,9 @@ reports/*.log
 reports/*.err
 # Có trích nội dung tin đăng và tên người gán nhãn; tạo lại bằng src/label_agreement.py
 reports/label_agreement.md
+
+# File tạm khi biên dịch LaTeX
+*.aux
+*.out
+*.synctex.gz
+docs/bao_cao_tien_do/*.log
