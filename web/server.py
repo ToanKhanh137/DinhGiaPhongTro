@@ -328,12 +328,17 @@ def map_data():
     if cf.exists():
         clusters = pd.read_csv(cf).set_index("ward")["cluster"].to_dict()
     g = df.groupby("ward")
+    # Chỉ dùng tin có tọa độ cấp phường/chính xác để xã/phường thiếu tọa độ không bị gán về tâm quận và đè lên phường khác
+    has_ward_geo = df["geo_precision"] != "district" if "geo_precision" in df.columns else pd.Series(True, index=df.index)
+    g_geo = df[has_ward_geo].groupby("ward")
     wards = pd.DataFrame({
         "district": g["district"].agg(lambda s: s.mode().iat[0]), "n": g.size(),
-        "lat": g["lat"].median(), "lon": g["lon"].median(),
+        "lat": g_geo["lat"].median(), "lon": g_geo["lon"].median(),
         "price": g["price"].median() / 1e6, "ppm": g["ppm"].median() / 1e3, "size": g["size"].median(),
     })
-    wards = wards[wards["n"] >= 8].dropna().round(2).reset_index()
+    wards = wards[wards["n"] >= 8].dropna().reset_index()
+    wards[["price", "ppm", "size"]] = wards[["price", "ppm", "size"]].round(2)
+    wards[["lat", "lon"]] = wards[["lat", "lon"]].round(5)
     wards["cluster"] = wards["ward"].map(clusters)
     district = df.groupby("district").agg(n=("price", "size"), price=("price", "median"), ppm=("ppm", "median"))
     district = district[district["n"] >= 30].assign(price=lambda d: (d["price"] / 1e6).round(2),
