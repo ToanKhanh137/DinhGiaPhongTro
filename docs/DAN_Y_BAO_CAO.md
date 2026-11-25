@@ -80,7 +80,7 @@ chất lượng thuyết trình · chất lượng báo cáo · hệ thống th�
 
 ---
 
-## Gợi ý slide thuyết trình (12 phút, ~12–14 slide)
+## Gợi ý slide thuyết trình
 1. Tiêu đề: "Trọ này có hớ không?" · 2. Vấn đề + demo 1 câu · 3. Dữ liệu (3 nguồn, số tin, khó khăn) ·
 4. Làm sạch + rò rỉ dữ liệu · 5. Đặc trưng · 6. So sánh mô hình · 7. Ablation (văn bản > vị trí) ·
 8. Từ nào kéo giá lên/xuống (hình 06) · 9. Phân tích lỗi + phân loại loại tin · 10. Bản đồ cụm (hình 09) ·

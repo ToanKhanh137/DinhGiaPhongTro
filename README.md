@@ -84,7 +84,7 @@ Mốc: **M1** nộp báo cáo tiến độ · **M2** chốt dữ liệu và thí
 **Trần Việt Gia Khánh**
 - [ ] Gán độc lập 100 tin bằng `src/label_tool.py`, đo độ đồng thuận nhãn (M2)
 - [ ] Viết các mục phân loại loại tin (M3)
-- [ ] Slide thuyết trình 12 phút (M4)
+- [ ] Slide thuyết trình (M4)
 
 **Hà Trọng Thắng**
 - [ ] Rà README cho người mới; gắn tag `bao-cao-tien-do` khi nộp báo cáo tiến độ (M1)
