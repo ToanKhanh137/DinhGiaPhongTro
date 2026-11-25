@@ -72,8 +72,7 @@ Mốc: **M1** nộp báo cáo tiến độ · **M2** chốt dữ liệu và thí
 **M4** thuyết trình, vấn đáp. Xong việc nào thì đánh dấu việc đó.
 
 **Phạm Thành Trung**
-- [ ] Đưa thư mục `data/` lên Drive của nhóm; xong khi cả nhóm tải về chạy được (M1)
-- [ ] Crawl thêm ít nhất 2 lượt, mỗi lượt ghi số tin mới (M2)
+- [ ] Crawl thêm ít nhất 2 lượt; sau mỗi lượt đưa bản dữ liệu mới lên Drive của nhóm và ghi số tin mới (M2)
 - [ ] Viết chương Dữ liệu của báo cáo cuối kỳ (M3)
 - [ ] Rà soát số liệu báo cáo cuối kỳ với `reports/` và với đề xuất đã nộp (M3)
 
@@ -95,7 +94,8 @@ Mốc: **M1** nộp báo cáo tiến độ · **M2** chốt dữ liệu và thí
 
 **Nguyễn Khánh Toàn**
 - [x] Tạo repo GitHub
-- [ ] Thêm thành viên vào repo; nộp báo cáo tiến độ (M1)
+- [x] Đưa dữ liệu (bản 15/11) lên Drive của nhóm
+- [ ] Thêm thành viên vào repo và thư mục Drive; nộp báo cáo tiến độ (M1)
 - [ ] Chạy lại pipeline với dữ liệu đã chốt, cập nhật số liệu (M2)
 - [ ] Viết các mục mô hình giá, đánh giá, khoảng giá, kết luận; ghép báo cáo cuối kỳ (M3)
 - [ ] Tổ chức buổi hỏi chéo trước vấn đáp (M4)
