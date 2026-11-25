@@ -6,9 +6,12 @@ Nhóm tự thu thập tin cho thuê phòng trọ ở Hà Nội từ Chợ Tốt,
 Người dùng nhập diện tích, vị trí, nội thất và mô tả phòng (hoặc dán link tin đăng); hệ thống trả về giá ước tính,
 khoảng giá 80% của các phòng tương tự và nhận xét giá chủ trọ đưa ra là đắt, hợp lý hay rẻ.
 
-## Kết quả
+Đồ án đang thực hiện. Việc tiếp theo của từng thành viên ở mục [Tiến độ và phân công](#tiến-độ-và-phân-công).
 
-Dữ liệu đến 15/11/2026: 10.079 tin sau làm sạch, trong đó 7.409 tin phòng riêng dùng cho mô hình giá.
+## Kết quả hiện tại
+
+Dữ liệu đến 15/11/2026 (sẽ chạy lại khi chốt dữ liệu): 10.079 tin sau làm sạch, trong đó 7.409 tin phòng riêng dùng
+cho mô hình giá.
 Đánh giá bằng GroupKFold 5-fold (các tin của cùng một phòng luôn nằm cùng một phía train hoặc test).
 
 | Mô hình | MAE (triệu) | MAPE | R² |
@@ -59,3 +62,40 @@ python web/server.py --open    # web demo tại http://localhost:8000
 
 Thu thập theo robots.txt của từng trang, giãn cách 1,5 giây giữa các request. Không lưu tên, tài khoản người đăng;
 số điện thoại trong mô tả được che. Dữ liệu chỉ dùng cho học tập và không công bố lại.
+
+## Tiến độ và phân công
+
+Đã xong: thu thập 7 lượt dữ liệu (08/10 – 15/11), làm sạch, mô hình giá, khoảng giá, kiểm tra trên tin mới, phân loại
+loại tin, phân cụm, luật kết hợp, web demo, báo cáo nháp.
+
+Mốc: **M1** nộp báo cáo tiến độ · **M2** chốt dữ liệu và thí nghiệm bổ sung · **M3** nộp báo cáo cuối kỳ ·
+**M4** thuyết trình, vấn đáp. Xong việc nào thì đánh dấu việc đó.
+
+**Phạm Thành Trung**
+- [ ] Đưa thư mục `data/` lên Drive của nhóm; xong khi cả nhóm tải về chạy được (M1)
+- [ ] Crawl thêm ít nhất 2 lượt, mỗi lượt ghi số tin mới (M2)
+- [ ] Viết chương Dữ liệu của báo cáo cuối kỳ (M3)
+- [ ] Rà soát số liệu báo cáo cuối kỳ với `reports/` và với đề xuất đã nộp (M3)
+
+**Lê Tuấn Trung**
+- [ ] Bảng nguyên nhân 30 tin bị đoán sai nặng nhất (M2)
+- [ ] Thí nghiệm khoảng giá bằng hồi quy phân vị, so với cách hiện tại (M2)
+- [ ] Viết các mục đặc trưng, ablation, tinh chỉnh siêu tham số, phân tích lỗi (M3)
+
+**Trần Việt Gia Khánh**
+- [ ] Gán độc lập 100 tin bằng `src/label_tool.py`, đo độ đồng thuận nhãn (M2)
+- [ ] Viết các mục phân loại loại tin (M3)
+- [ ] Slide thuyết trình 12 phút (M4)
+
+**Hà Trọng Thắng**
+- [ ] Rà README cho người mới; gắn tag `bao-cao-tien-do` khi nộp báo cáo tiến độ (M1)
+- [ ] Clone về máy khác, chạy lại toàn bộ theo README; xong khi test pass và web chạy (M2)
+- [ ] Viết các mục phân cụm, luật kết hợp, web demo, cấu trúc mã nguồn (M3)
+- [ ] Kịch bản demo 3 tình huống và video dự phòng (M4)
+
+**Nguyễn Khánh Toàn**
+- [x] Tạo repo GitHub
+- [ ] Thêm thành viên vào repo; nộp báo cáo tiến độ (M1)
+- [ ] Chạy lại pipeline với dữ liệu đã chốt, cập nhật số liệu (M2)
+- [ ] Viết các mục mô hình giá, đánh giá, khoảng giá, kết luận; ghép báo cáo cuối kỳ (M3)
+- [ ] Tổ chức buổi hỏi chéo trước vấn đáp (M4)
