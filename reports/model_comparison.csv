@@ -1,0 +1,10 @@
+﻿,MAE (triệu),RMSE (triệu),MAPE (%),R2
+Dummy (trung bình),1.081,1.473,33.376,-0.034
+Linear Regression,0.679,0.97,19.509,0.552
+Ridge,0.68,0.969,19.525,0.552
+Lasso,0.68,0.97,19.544,0.552
+Random Forest,0.65,0.941,18.584,0.579
+HistGradientBoosting,0.636,0.917,18.189,0.599
+Ridge + TF-IDF,0.598,0.868,17.16,0.642
+Ridge + TF-IDF × 0.7 + HGB × 0.3,0.577,0.847,16.538,0.659
+Ridge + TF-IDF × 0.7 + HGB × 0.3 - KFold ngẫu nhiên (có rò rỉ),0.563,0.829,16.11,0.673

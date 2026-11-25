@@ -1,0 +1,18 @@
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Dữ liệu crawl, nhãn tay (có kèm nội dung tin đăng) và mô hình đã huấn luyện: chỉ dùng nội bộ nhóm,
+# để trên Drive riêng, không đẩy lên repo công khai (xem data/README.md)
+data/raw/
+data/processed/
+data/labels/
+models/
+
+# Nhật ký chạy (có đường dẫn máy cá nhân); kết quả chính nằm ở các file .md / .csv / figures/
+reports/*.log
+reports/*.err
+# Có trích nội dung tin đăng và tên người gán nhãn; tạo lại bằng src/label_agreement.py
+reports/label_agreement.md

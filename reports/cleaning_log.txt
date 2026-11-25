@@ -1,0 +1,22 @@
+# build_dataset.py chạy lúc 2026-11-15 21:38
+[chotot] thô: 12699
+[chotot] sau bỏ trùng list_id: 3680
+[chotot] thiếu diện tích: 1919, tách được từ mô tả: 124
+[phongtro123] thô: 39524
+[phongtro123] sau bỏ trùng ad_id: 4992
+[phongtro123] có mô tả đầy đủ: 4992
+[mogi] thô: 6701
+[mogi] sau bỏ trùng ad_id: 1805
+[mogi] có trang chi tiết: 1804
+[gộp] 10477 tin
+[tọa độ] {'ward': 6156, 'exact': 3680, 'district': 614, None: 27}
+[lọc] bỏ 32 tin thiếu giá -> còn 10445
+[lọc] bỏ 71 tin giá ngoài [500,000, 30,000,000] -> còn 10374
+[lọc] bỏ 104 tin diện tích ngoài [5, 150] m² -> còn 10270
+[lọc] bỏ 23 tin không có tọa độ -> còn 10247
+[lọc] bỏ 168 tin có giá/m² ngoài phân vị 1-99% [27,285, 275,000] -> còn 10079
+[diện tích] 1789/10079 tin không ghi diện tích (giữ lại, gắn cờ size_missing)
+[nhóm] ghép 2882 cặp trùng (phường, giá, diện tích) + 650 cặp mô tả giống nhau (cosine >= 0.85, giá chênh <= 10%) -> 6918 phòng; nhóm lớn nhất 138 tin
+[nhóm] 6918 nhóm phòng khác nhau / 10079 tin (nhóm xuất hiện ở >1 nguồn: 789)
+[nguồn] {'phongtro123': 4816, 'chotot': 3545, 'mogi': 1718}
+-> D:\File học tập\2026.1\Học máy\DoAn_DinhGiaPhongTro\data\processed\rooms.csv

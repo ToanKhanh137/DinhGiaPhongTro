@@ -1,0 +1,46 @@
+﻿nhóm tin,cách tính,số tin,độ phủ (%),độ rộng TB (triệu),độ rộng TB / giá (%)
+tất cả,một độ rộng chung,7409,79.96,1.83,50.16
+tất cả,thích nghi theo tin,7409,79.93,1.8,50.33
+tất cả,thích nghi + theo mức giá dự đoán,7409,79.66,1.78,50.12
+có ghi diện tích,một độ rộng chung,5997,79.67,1.75,50.16
+có ghi diện tích,thích nghi theo tin,5997,79.87,1.72,50.46
+có ghi diện tích,thích nghi + theo mức giá dự đoán,5997,79.66,1.7,50.47
+không ghi diện tích,một độ rộng chung,1412,81.16,2.19,50.16
+không ghi diện tích,thích nghi theo tin,1412,80.17,2.16,49.81
+không ghi diện tích,thích nghi + theo mức giá dự đoán,1412,79.67,2.09,48.63
+nguồn chotot,một độ rộng chung,2760,78.01,2.01,50.16
+nguồn chotot,thích nghi theo tin,2760,79.2,2.08,52.42
+nguồn chotot,thích nghi + theo mức giá dự đoán,2760,78.33,2.02,51.57
+nguồn mogi,một độ rộng chung,1221,88.29,1.94,50.17
+nguồn mogi,thích nghi theo tin,1221,81.65,1.59,41.99
+nguồn mogi,thích nghi + theo mức giá dự đoán,1221,81.74,1.56,41.71
+nguồn phongtro123,một độ rộng chung,3428,78.56,1.65,50.16
+nguồn phongtro123,thích nghi theo tin,3428,79.9,1.66,51.63
+nguồn phongtro123,thích nghi + theo mức giá dự đoán,3428,79.99,1.66,51.95
+"giá dự đoán < 2,5 triệu",một độ rộng chung,1192,69.04,1.04,50.17
+"giá dự đoán < 2,5 triệu",thích nghi theo tin,1192,78.61,1.22,59.81
+"giá dự đoán < 2,5 triệu",thích nghi + theo mức giá dự đoán,1192,79.61,1.24,60.53
+"giá dự đoán 2,5–3 triệu",một độ rộng chung,1019,78.9,1.38,50.16
+"giá dự đoán 2,5–3 triệu",thích nghi theo tin,1019,80.47,1.44,52.49
+"giá dự đoán 2,5–3 triệu",thích nghi + theo mức giá dự đoán,1019,79.98,1.46,53.09
+"giá dự đoán 3–3,5 triệu",một độ rộng chung,1271,79.46,1.64,50.15
+"giá dự đoán 3–3,5 triệu",thích nghi theo tin,1271,76.48,1.59,48.81
+"giá dự đoán 3–3,5 triệu",thích nghi + theo mức giá dự đoán,1271,79.7,1.69,51.92
+"giá dự đoán 3,5–4 triệu",một độ rộng chung,1288,83.77,1.88,50.15
+"giá dự đoán 3,5–4 triệu",thích nghi theo tin,1288,80.12,1.75,46.73
+"giá dự đoán 3,5–4 triệu",thích nghi + theo mức giá dự đoán,1288,79.58,1.75,46.66
+giá dự đoán 4–5 triệu,một độ rộng chung,1806,84.5,2.22,50.17
+giá dự đoán 4–5 triệu,thích nghi theo tin,1806,81.12,2.07,46.67
+giá dự đoán 4–5 triệu,thích nghi + theo mức giá dự đoán,1806,79.84,2.0,45.22
+giá dự đoán > 5 triệu,một độ rộng chung,833,81.87,2.89,50.17
+giá dự đoán > 5 triệu,thích nghi theo tin,833,83.55,2.92,49.97
+giá dự đoán > 5 triệu,thích nghi + theo mức giá dự đoán,833,78.99,2.62,44.82
+giá thật < 2 triệu,một độ rộng chung,529,45.18,1.02,50.17
+giá thật < 2 triệu,thích nghi theo tin,529,59.55,1.26,62.89
+giá thật < 2 triệu,thích nghi + theo mức giá dự đoán,529,63.14,1.27,63.68
+giá thật 2–5 triệu,một độ rộng chung,5845,84.88,1.76,50.16
+giá thật 2–5 triệu,thích nghi theo tin,5845,83.54,1.7,49.08
+giá thật 2–5 triệu,thích nghi + theo mức giá dự đoán,5845,83.54,1.7,49.34
+giá thật > 5 triệu,một độ rộng chung,1035,69.95,2.62,50.18
+giá thật > 5 triệu,thích nghi theo tin,1035,69.95,2.68,51.01
+giá thật > 5 triệu,thích nghi + theo mức giá dự đoán,1035,66.18,2.49,47.6

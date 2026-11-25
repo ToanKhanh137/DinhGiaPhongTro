@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Trọ này có hớ không?</title>
+  <link rel="stylesheet" href="/static/vendor/fonts.css">
+  <link rel="stylesheet" href="/static/vendor/leaflet.css">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="#dinh-gia" aria-label="Trọ này có hớ không? — trang chủ">
+        <span class="brand-mark" aria-hidden="true">HN</span>
+        <span class="brand-name">Trọ này có hớ không?</span>
+      </a>
+      <nav class="tabs" aria-label="Các trang">
+        <a class="tab" href="#dinh-gia" data-view="dinh-gia">Định giá</a>
+        <a class="tab" href="#ban-do" data-view="ban-do">Bản đồ giá</a>
+        <a class="tab" href="#mo-hinh" data-view="mo-hinh">Về mô hình</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== ĐỊNH GIÁ ===================== -->
+  <main id="view-dinh-gia" class="view wrap">
+    <div class="view-head">
+      <h1>Phòng này giá bao nhiêu thì hợp lý?</h1>
+      <p id="tagline">Ước lượng giá thuê từ các tin đăng phòng trọ ở Hà Nội.</p>
+    </div>
+
+    <div class="estimate-grid">
+      <div class="form-col">
+        <form class="card" id="form" autocomplete="off" novalidate>
+          <div class="field">
+            <label for="url">Dán link tin đăng</label>
+            <div class="import">
+              <input id="url" type="url" inputmode="url" placeholder="https://phongtro123.com/...">
+              <button type="button" class="btn secondary" id="fetch">Đọc tin</button>
+            </div>
+            <div class="sources">Chợ Tốt, Nhà Tốt, Phongtro123, Mogi</div>
+            <p class="import-status" id="import-status" hidden></p>
+          </div>
+
+          <div class="or">hoặc nhập thông tin</div>
+
+          <div class="row2">
+            <div class="field">
+              <label for="district">Quận / huyện</label>
+              <select id="district"></select>
+            </div>
+            <div class="field">
+              <label for="ward">Phường / xã <em>tùy chọn</em></label>
+              <select id="ward"></select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="size">Diện tích</label>
+            <div class="size-row">
+              <input id="size-range" type="range" min="8" max="80" step="1" value="20" aria-label="Diện tích (kéo)">
+              <div class="unit"><input id="size" type="number" min="5" max="150" step="1" value="20"><b>m²</b></div>
+            </div>
+          </div>
+
+          <div class="field">
+            <span id="furn-label">Nội thất</span>
+            <div class="segmented" id="furnishing" role="group" aria-labelledby="furn-label"></div>
+          </div>
+
+          <div class="field">
+            <label for="text">Mô tả tin đăng <em>dán nguyên văn càng tốt</em></label>
+            <textarea id="text" rows="6" placeholder="VD: Phòng khép kín 20m², điều hòa, nóng lạnh, máy giặt chung, giờ giấc tự do, không chung chủ…"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="asking">Giá chủ trọ đưa ra <em>tùy chọn</em></label>
+            <div class="unit"><input id="asking" type="number" min="0" max="50" step="0.1" placeholder="VD: 3.5" style="padding-right: 108px"><b>triệu / tháng</b></div>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="btn" id="submit">Định giá</button>
+          </div>
+          <div class="examples" style="margin-top: 14px">
+            <span>Ví dụ:</span>
+            <button type="button" class="chip-btn" data-example="0">Phòng trọ gần Bách Khoa</button>
+            <button type="button" class="chip-btn" data-example="1">Căn 1N1K Cầu Giấy</button>
+            <button type="button" class="chip-btn" data-example="2">Ở ghép Đống Đa</button>
+          </div>
+          <p class="form-error" id="error" hidden></p>
+        </form>
+
+        <section class="card recent" id="recent" aria-labelledby="recent-title" hidden>
+          <div class="recent-head">
+            <h2 class="card-title" id="recent-title">Đã kiểm tra gần đây</h2>
+            <button type="button" class="btn-text" id="recent-clear">Xóa</button>
+          </div>
+          <div class="recent-list" id="recent-list"></div>
+        </section>
+      </div>
+
+      <section class="result-col" id="result" aria-live="polite">
+        <div class="example-note" id="example-note" hidden></div>
+
+        <div class="card">
+          <div class="headline">
+            <div class="plate" role="img" aria-labelledby="plate-label">
+              <span class="plate-top">Giá thị trường</span>
+              <span class="plate-num" id="price">–</span>
+              <span class="plate-unit">triệu đồng / tháng</span>
+            </div>
+            <div class="headline-text">
+              <span class="type-pill" id="type-pill">Phòng riêng</span>
+              <p class="type-note" id="type-note" hidden></p>
+              <p class="range-line" id="plate-label">Khoảng giá phổ biến <strong id="range">–</strong> triệu</p>
+              <p class="type-note" id="range-note" hidden></p>
+              <div class="verdict" id="verdict" hidden><span class="tag" id="verdict-tag"></span><p id="verdict-text"></p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title">So với các phòng tương tự</h2>
+          <p class="card-sub" id="chart-sub"></p>
+          <figure class="chart" style="margin: 0">
+            <svg id="chart" role="img" aria-label="Biểu đồ khoảng giá"></svg>
+            <figcaption class="legend">
+              <span><i class="sw sw-band"></i>Khoảng giá phổ biến (80%)</span>
+              <span><i class="sw sw-line"></i>Giá ước tính</span>
+              <span><i class="sw sw-dot"></i>Phòng tương tự trong khu vực</span>
+              <span id="legend-ask" hidden><i class="sw sw-ring"></i>Giá chủ trọ</span>
+            </figcaption>
+            <div class="tooltip" id="tooltip" hidden></div>
+          </figure>
+        </div>
+
+        <div class="two-col">
+          <div class="card">
+            <h2 class="card-title">Vì sao ra giá này?</h2>
+            <p class="card-sub">Mỗi yếu tố làm giá cao hơn hay thấp hơn một phòng trung bình bao nhiêu %</p>
+            <div class="why" id="why"></div>
+            <div class="why-axis" aria-hidden="true"><span></span><div><span>rẻ hơn</span><span>đắt hơn</span></div><span></span></div>
+            <p class="footnote" id="why-note"></p>
+          </div>
+          <div class="card">
+            <h2 class="card-title">Nếu tin có thêm…</h2>
+            <p class="card-sub">Bấm để thêm vào mô tả và định giá lại</p>
+            <div class="whatif" id="whatif"></div>
+            <div class="chips" id="keywords" style="margin-top: 14px"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title">Tin đăng tương tự <span id="similar-area" style="font-weight: 400; color: var(--muted)"></span></h2>
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th class="r">Giá</th><th class="r">Diện tích</th><th>Khu vực</th><th>Tin đăng</th></tr></thead>
+              <tbody id="similar"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ===================== BẢN ĐỒ ===================== -->
+  <main id="view-ban-do" class="view wrap" hidden>
+    <div class="view-head">
+      <h1>Mặt bằng giá theo phường</h1>
+      <p>Mỗi vòng tròn là một phường có từ 8 tin phòng riêng trở lên; vòng càng lớn càng nhiều tin. Bấm vào vòng để xem chi tiết.</p>
+    </div>
+    <div class="map-grid">
+      <div class="card map-card">
+        <div id="map" role="application" aria-label="Bản đồ giá thuê theo phường"></div>
+        <div class="map-controls">
+          <div class="segmented" id="map-metric" role="group" aria-label="Chỉ số">
+            <button type="button" data-metric="ppm" aria-pressed="true">Giá / m²</button>
+            <button type="button" data-metric="price" aria-pressed="false">Giá trung vị</button>
+          </div>
+          <div class="ramp"><div class="ramp-bar" id="ramp-bar"></div><div class="ramp-ticks" id="ramp-ticks"></div></div>
+        </div>
+        <div class="map-offline" id="map-offline" hidden>Không tải được nền bản đồ (cần Internet). Các vòng tròn vẫn đúng vị trí.</div>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Giá trung vị theo quận</h2>
+        <p class="card-sub">Quận có từ 30 tin phòng riêng, triệu đồng / tháng</p>
+        <div class="rank" id="rank"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===================== VỀ MÔ HÌNH ===================== -->
+  <main id="view-mo-hinh" class="view wrap" hidden>
+    <div class="view-head">
+      <h1>Mô hình được xây và đánh giá thế nào</h1>
+      <p>Đồ án môn Nhập môn Học máy và Khai phá dữ liệu (IT3190). Dữ liệu do nhóm tự thu thập từ 3 trang rao vặt.</p>
+    </div>
+    <div class="stats" id="stats"></div>
+
+    <div class="card" style="margin-top: 16px">
+      <h2 class="card-title">Quy trình</h2>
+      <p class="card-sub">Chạy lại toàn bộ bằng <span class="num">python src/run_pipeline.py</span></p>
+      <ol class="steps">
+        <li><b>Thu thập</b>Crawl Chợ Tốt, Phongtro123, Mogi; bỏ thông tin cá nhân</li>
+        <li><b>Làm sạch</b>Bỏ tin trùng, giá ảo; suy tọa độ theo phường</li>
+        <li><b>Phân loại tin</b>Tách phòng riêng khỏi tin ở ghép, tin nhiều mức giá</li>
+        <li><b>Đặc trưng</b>Diện tích, vị trí, tiện ích, TF-IDF mô tả (đã che giá)</li>
+        <li><b>Mô hình</b>Ridge + TF-IDF kết hợp Gradient Boosting</li>
+        <li><b>Đánh giá</b>GroupKFold theo phòng; kiểm tra trên tin đăng mới</li>
+      </ol>
+    </div>
+
+    <div class="about-grid">
+      <div class="card">
+        <h2 class="card-title">Sai số trung bình của các mô hình</h2>
+        <p class="card-sub">MAE, triệu đồng (thấp hơn là tốt hơn) · GroupKFold 5-fold</p>
+        <div class="hbars" id="models"></div>
+        <p class="footnote">Thanh gạch chéo: cùng mô hình nhưng chia dữ liệu ngẫu nhiên, để tin đăng lại của cùng một phòng có thể lọt vào cả train và test. Sai số chỉ thấp hơn rất ít, nên tin đăng lại không làm kết quả đẹp giả đáng kể.</p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Bỏ từng nhóm đặc trưng</h2>
+        <p class="card-sub">R² của Ridge + TF-IDF (cao hơn là tốt hơn)</p>
+        <div class="hbars" id="ablation"></div>
+        <p class="footnote">Mô tả tin đăng là thông tin quan trọng nhất; bỏ vị trí gần như không ảnh hưởng.</p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Dự đoán tin đăng mới</h2>
+        <p class="card-sub">Huấn luyện trên tin đợt 8/10, chấm trên tin xuất hiện sau đó</p>
+        <div class="table-scroll"><table id="temporal"></table></div>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Khoảng giá có đáng tin không?</h2>
+        <p class="card-sub">Tỉ lệ giá thật nằm trong khoảng 80% (mục tiêu 80%) và độ rộng trung bình của khoảng</p>
+        <div class="table-scroll"><table id="intervals"></table></div>
+        <p class="footnote">Khoảng giá thích nghi rộng hơn với loại tin khó đoán, hẹp hơn với loại tin dễ đoán, và được tính riêng cho từng mức giá dự đoán. Nhờ vậy độ phủ gần 80% ở mọi nguồn tin và mọi mức giá dự đoán. Nhóm chia theo giá thật vẫn phủ thiếu với mọi cách tính: phòng rẻ hoặc đắt bất thường so với mô tả thì nằm ngoài khoảng.</p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Những điều cần biết</h2>
+        <ul class="findings">
+          <li>Giá trong dữ liệu là giá niêm yết trên tin đăng, không phải giá chốt hợp đồng.</li>
+          <li>Phòng có giá thật rất rẻ thường bị đoán cao, phòng rất đắt bị đoán thấp: mô tả không nói hết lý do. Xét theo giá dự đoán thì mô hình không lệch.</li>
+          <li>Tin ở ghép và tin nhiều mức giá được nhận diện và loại khỏi dữ liệu huấn luyện.</li>
+          <li>Giải thích "Vì sao ra giá này?" dựa trên phần tuyến tính của mô hình và là tương quan học từ tin đăng, không phải quan hệ nhân quả.</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer wrap" id="footer"></footer>
+
+  <script src="/static/vendor/leaflet.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# Thí nghiệm bổ sung (GroupKFold 5-fold)
+
+7409 tin phòng riêng.
+
+| thí nghiệm        | cấu hình                                         |   MAE (triệu) |   RMSE (triệu) |   MAPE (%) |     R2 |
+|:------------------|:-------------------------------------------------|--------------:|---------------:|-----------:|-------:|
+| H. tham số TF-IDF | mặc định (1-2 gram, min_df 5, 20k)               |        0.5977 |         0.8681 |    17.1602 | 0.6416 |
+| H. tham số TF-IDF | 1-3 gram                                         |        0.599  |         0.8709 |    17.1839 | 0.6392 |
+| H. tham số TF-IDF | min_df 2                                         |        0.5943 |         0.8646 |    17.0514 | 0.6444 |
+| H. tham số TF-IDF | min_df 10                                        |        0.601  |         0.8708 |    17.2661 | 0.6394 |
+| H. tham số TF-IDF | tối đa 50k đặc trưng                             |        0.5977 |         0.8681 |    17.1602 | 0.6416 |
+| H. tham số TF-IDF | không giới hạn, min_df 3                         |        0.5942 |         0.8648 |    17.0525 | 0.6442 |
+| H. tham số TF-IDF | 1-3 gram, min_df 3, 50k, alpha 1,5               |        0.5914 |         0.8643 |    16.9662 | 0.6446 |
+| I. stacking       | trung bình có trọng số 0,7 / 0,3 (đang dùng)     |        0.5772 |         0.8466 |    16.5382 | 0.6591 |
+| I. stacking       | Ridge (OOF) -> HGB, learning rate 0.05, 300 vòng |        0.5775 |         0.8494 |    16.5085 | 0.6566 |
+| I. stacking       | Ridge (OOF) -> HGB, learning rate 0.03, 500 vòng |        0.5781 |         0.85   |    16.5126 | 0.6561 |

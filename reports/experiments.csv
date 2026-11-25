@@ -1,0 +1,26 @@
+﻿thí nghiệm,cấu hình,MAE (triệu),RMSE (triệu),MAPE (%),R2
+A. văn bản,"Ridge, không dùng văn bản",0.793,1.112,22.887,0.411
+A. văn bản,Ridge + từ khóa thủ công,0.68,0.969,19.525,0.552
+A. văn bản,Ridge + TF-IDF,0.601,0.871,17.274,0.639
+A. văn bản,Ridge + từ khóa + TF-IDF,0.598,0.868,17.16,0.642
+A. văn bản,Ridge + từ khóa + TF-IDF ký tự,0.607,0.87,17.474,0.639
+A. văn bản,Ridge + từ khóa + TF-IDF từ + ký tự,0.6,0.865,17.257,0.644
+B. tinh chỉnh,HGB mặc định,0.624,0.902,17.862,0.613
+B. tinh chỉnh,"HGB tinh chỉnh (chọn trên toàn bộ dữ liệu) {'min_samples_leaf': 20, 'max_leaf_nodes': 31, 'max_iter': 400, 'learning_rate': 0.02, 'l2_regularization': 1.0}",0.621,0.901,17.783,0.613
+B. tinh chỉnh,HGB tinh chỉnh — nested CV (khách quan),0.621,0.901,17.783,0.613
+C. ablation,bỏ vị trí (khoảng cách + quận),0.61,0.885,17.582,0.628
+C. ablation,bỏ diện tích,0.669,0.967,19.587,0.555
+C. ablation,bỏ từ khóa + TF-IDF,0.793,1.112,22.941,0.411
+C. ablation,bỏ nội thất,0.599,0.869,17.173,0.641
+D. tọa độ,"Chợ Tốt (2760 tin), tọa độ thật",0.694,1.047,18.267,0.587
+D. tọa độ,"Chợ Tốt, tọa độ = trung vị phường",0.694,1.046,18.26,0.588
+E. alpha Ridge+TF-IDF,alpha = 0.1,0.687,0.971,19.637,0.552
+E. alpha Ridge+TF-IDF,alpha = 0.3,0.633,0.906,18.123,0.609
+E. alpha Ridge+TF-IDF,alpha = 1.0,0.598,0.868,17.16,0.642
+E. alpha Ridge+TF-IDF,alpha = 3.0,0.594,0.868,17.069,0.641
+E. alpha Ridge+TF-IDF,alpha = 10.0,0.615,0.896,17.671,0.618
+F. kết hợp mô hình,Ridge+TF-IDF × 1 + HGB × 0,0.598,0.868,17.16,0.642
+F. kết hợp mô hình,Ridge+TF-IDF × 0.7 + HGB × 0.3,0.578,0.847,16.577,0.659
+F. kết hợp mô hình,Ridge+TF-IDF × 0.5 + HGB × 0.5,0.578,0.849,16.549,0.658
+G. phường,"Ridge + TF-IDF, quận",0.598,0.868,17.16,0.642
+G. phường,"Ridge + TF-IDF, quận + phường",0.601,0.871,17.226,0.64

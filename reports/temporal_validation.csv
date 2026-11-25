@@ -1,0 +1,13 @@
+﻿mô hình,tập test,số tin,MAE (triệu),RMSE (triệu),MAPE (%),R2
+Dummy (trung bình),tất cả tin mới,1618,1.191,1.614,32.382,-0.156
+Dummy (trung bình),chỉ tin thật sự mới,1293,1.259,1.713,33.177,-0.194
+Dummy (trung bình),chỉ tin đăng lại,325,0.919,1.138,29.217,-0.035
+HistGradientBoosting,tất cả tin mới,1618,0.713,1.013,19.148,0.544
+HistGradientBoosting,chỉ tin thật sự mới,1293,0.751,1.069,20.092,0.536
+HistGradientBoosting,chỉ tin đăng lại,325,0.561,0.755,15.395,0.545
+Ridge + TF-IDF,tất cả tin mới,1618,0.663,0.932,17.945,0.615
+Ridge + TF-IDF,chỉ tin thật sự mới,1293,0.705,0.988,18.959,0.603
+Ridge + TF-IDF,chỉ tin đăng lại,325,0.497,0.662,13.908,0.649
+Ridge + TF-IDF × 0.7 + HGB × 0.3,tất cả tin mới,1618,0.642,0.91,17.337,0.633
+Ridge + TF-IDF × 0.7 + HGB × 0.3,chỉ tin thật sự mới,1293,0.683,0.965,18.378,0.621
+Ridge + TF-IDF × 0.7 + HGB × 0.3,chỉ tin đăng lại,325,0.478,0.646,13.197,0.666
